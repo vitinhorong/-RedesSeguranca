@@ -1,408 +1,409 @@
-# 📘 Guia de Comandos Linux
+# Guia de Comandos Linux
 
-> Trabalho prático — comandos essenciais do GNU/Linux com exemplos.
+Este repositório foi criado como atividade prática da disciplina de Sistemas Operacionais.
+Aqui estão 30 comandos básicos do Linux com explicações e exemplos de uso.
 
 ---
 
 ## Navegação
 
-## `ls` — Listar arquivos
+## ls
 
 **Para que serve:**
-Lista os arquivos e pastas do diretório atual. É como abrir uma pasta no explorador de arquivos e ver o que tem dentro.
+O comando ls serve para listar os arquivos e pastas que estão dentro do diretório em que você se encontra. É como abrir uma pasta no Windows e ver o que tem dentro, só que pelo terminal.
 
 **Exemplo de uso:**
 ```bash
-ls          # lista básica
-ls -l       # lista detalhada (permissões, tamanho, data)
-ls -la      # inclui arquivos ocultos (começam com .)
+ls
 ```
+Ao rodar esse comando, o terminal vai mostrar todos os arquivos e pastas do local atual.
 
 ---
 
-## `cd` — Mudar diretório
+## cd
 
 **Para que serve:**
-Muda o diretório (pasta) atual. Funciona como clicar numa pasta para entrar nela.
+O comando cd serve para entrar em uma pasta (diretório). Toda vez que você quer acessar uma pasta diferente pelo terminal, usa esse comando.
 
 **Exemplo de uso:**
 ```bash
-cd /home/usuario   # vai para a pasta do usuário
-cd ..              # volta uma pasta (sobe um nível)
-cd ~               # vai direto para o diretório home
+cd Documentos
 ```
+Esse comando faz o terminal entrar na pasta chamada Documentos.
 
 ---
 
-## `pwd` — Mostrar diretório atual
+## pwd
 
 **Para que serve:**
-Mostra o caminho completo da pasta em que você está agora. Muito útil quando você se perde navegando pelo terminal.
+O comando pwd mostra qual é a pasta que você está usando no momento. É útil quando você não sabe mais onde está dentro do sistema de arquivos.
 
 **Exemplo de uso:**
 ```bash
 pwd
-# Saída: /home/usuario/documentos
 ```
+O terminal vai mostrar algo como: /home/aluno/Documentos
 
 ---
 
 ## Arquivos
 
-## `mkdir` — Criar pasta
+## mkdir
 
 **Para que serve:**
-Cria uma nova pasta (diretório). O nome vem de "make directory".
+O comando mkdir serve para criar uma pasta nova. Você escolhe o nome e ele cria a pasta no diretório atual.
 
 **Exemplo de uso:**
 ```bash
-mkdir minha-pasta                    # cria uma pasta simples
-mkdir -p projetos/linux/atividade    # cria toda a estrutura de uma vez
+mkdir trabalho
 ```
+Esse comando cria uma pasta chamada trabalho onde você está.
 
 ---
 
-## `cp` — Copiar arquivos
+## touch
 
 **Para que serve:**
-Copia arquivos ou pastas de um lugar para outro. É como o "Ctrl+C / Ctrl+V" no terminal.
+O comando touch serve para criar um arquivo vazio. Ele não coloca nenhum conteúdo dentro, só cria o arquivo em si.
 
 **Exemplo de uso:**
 ```bash
-cp arquivo.txt /backup/       # copia arquivo para a pasta backup
-cp -r pasta/ destino/         # copia uma pasta inteira (-r = recursivo)
+touch arquivo.txt
 ```
+Esse comando cria um arquivo chamado arquivo.txt vazio no diretório atual.
 
 ---
 
-## `mv` — Mover ou renomear
+## cp
 
 **Para que serve:**
-Move arquivos e pastas de lugar, ou renomeia. É como o "recortar e colar" do terminal.
+O comando cp serve para copiar arquivos. Você informa o arquivo original e o destino, e ele faz a cópia.
 
 **Exemplo de uso:**
 ```bash
-mv relatorio.txt documentos/          # move para outra pasta
-mv nome-antigo.txt novo-nome.txt      # renomeia o arquivo
+cp arquivo.txt copia.txt
 ```
+Esse comando cria uma cópia do arquivo.txt com o nome copia.txt na mesma pasta.
 
 ---
 
-## `rm` — Remover arquivos
+## mv
 
 **Para que serve:**
-Apaga arquivos permanentemente. Atenção: no Linux não existe lixeira no terminal, o arquivo some de vez!
+O comando mv serve para mover arquivos para outro lugar ou para renomear um arquivo. É como recortar e colar no Windows.
 
 **Exemplo de uso:**
 ```bash
-rm arquivo.txt          # apaga um arquivo
-rm -rf pasta/           # apaga pasta e todo o conteúdo (use com muito cuidado!)
+mv arquivo.txt Documentos/
 ```
+Esse comando move o arquivo.txt para dentro da pasta Documentos.
 
 ---
 
-## `touch` — Criar arquivo vazio
+## rm
 
 **Para que serve:**
-Cria um arquivo vazio, ou se o arquivo já existir, atualiza a data e hora de modificação dele.
+O comando rm serve para apagar arquivos. É importante tomar cuidado porque no Linux o arquivo não vai para a lixeira, ele é removido diretamente.
 
 **Exemplo de uso:**
 ```bash
-touch novo.txt            # cria um arquivo vazio chamado novo.txt
-touch a.txt b.txt c.txt   # cria vários arquivos de uma vez
+rm arquivo.txt
 ```
+Esse comando apaga o arquivo chamado arquivo.txt permanentemente.
 
 ---
 
-## `find` — Buscar arquivos
+## find
 
 **Para que serve:**
-Procura por arquivos e pastas no sistema usando vários critérios: nome, extensão, tamanho, data, etc.
+O comando find serve para procurar arquivos e pastas no sistema. Você informa onde procurar e o que procurar, e ele lista tudo que encontrar.
 
 **Exemplo de uso:**
 ```bash
-find . -name "*.txt"            # busca todos os .txt na pasta atual
-find /home -name "relatorio*"   # busca arquivos que começam com "relatorio"
+find . -name "*.txt"
 ```
+Esse comando procura todos os arquivos com extensão .txt dentro da pasta atual e das pastas dentro dela.
 
 ---
 
 ## Texto
 
-## `cat` — Exibir conteúdo de arquivo
+## cat
 
 **Para que serve:**
-Mostra o conteúdo de um arquivo de texto diretamente no terminal. Ótimo para arquivos pequenos.
+O comando cat serve para mostrar o que está escrito dentro de um arquivo de texto. O conteúdo aparece direto no terminal.
 
 **Exemplo de uso:**
 ```bash
-cat README.md                          # exibe o conteúdo do arquivo
-cat arquivo1.txt arquivo2.txt          # mostra os dois em sequência
+cat arquivo.txt
 ```
+O terminal vai exibir tudo que está escrito dentro do arquivo.txt.
 
 ---
 
-## `less` — Ler arquivos grandes
+## less
 
 **Para que serve:**
-Exibe arquivos longos com rolagem, ao contrário do cat que joga tudo de uma vez. Use as setas para navegar e a tecla Q para sair.
+O comando less abre um arquivo para você ler com calma, podendo rolar o texto para cima e para baixo. É melhor que o cat para arquivos grandes. Para sair, aperte a tecla Q.
 
 **Exemplo de uso:**
 ```bash
-less /var/log/syslog    # lê um arquivo de log grande
-less README.md          # navega pelo README com scroll
+less arquivo.txt
 ```
+O arquivo vai abrir no terminal para leitura. Use as setas do teclado para navegar e Q para fechar.
 
 ---
 
-## `head` — Primeiras linhas do arquivo
+## head
 
 **Para que serve:**
-Mostra as primeiras linhas de um arquivo. Por padrão exibe as 10 primeiras, mas você pode escolher quantas quer.
+O comando head mostra as primeiras linhas de um arquivo. Por padrão ele mostra as 10 primeiras, mas você pode mudar isso.
 
 **Exemplo de uso:**
 ```bash
-head arquivo.txt          # mostra as 10 primeiras linhas
-head -n 20 arquivo.txt    # mostra as 20 primeiras linhas
+head arquivo.txt
 ```
+O terminal vai mostrar as 10 primeiras linhas do arquivo.txt.
 
 ---
 
-## `tail` — Últimas linhas do arquivo
+## tail
 
 **Para que serve:**
-Mostra as últimas linhas de um arquivo. Com -f fica monitorando em tempo real, muito útil para acompanhar logs.
+O comando tail mostra as últimas linhas de um arquivo. É o oposto do head. Muito usado para ver as últimas mensagens de arquivos de registro do sistema.
 
 **Exemplo de uso:**
 ```bash
-tail arquivo.txt           # mostra as 10 últimas linhas
-tail -f /var/log/syslog    # fica atualizando ao vivo (Ctrl+C para sair)
+tail arquivo.txt
 ```
+O terminal vai mostrar as 10 últimas linhas do arquivo.txt.
 
 ---
 
-## `grep` — Buscar texto em arquivos
+## grep
 
 **Para que serve:**
-Procura por palavras ou padrões dentro de arquivos. É como o Ctrl+F do editor, mas no terminal.
+O comando grep serve para buscar uma palavra ou frase dentro de um arquivo. Ele mostra só as linhas que contêm o que você procurou.
 
 **Exemplo de uso:**
 ```bash
-grep "erro" arquivo.log          # busca a palavra "erro" no arquivo
-grep -r "senha" /etc/            # busca em todos os arquivos da pasta /etc
+grep "linux" arquivo.txt
 ```
+O terminal vai mostrar todas as linhas do arquivo.txt que contêm a palavra linux.
 
 ---
 
-## `echo` — Exibir mensagem
+## echo
 
 **Para que serve:**
-Exibe um texto na tela do terminal. Muito útil para mostrar o valor de variáveis ou para escrever conteúdo em arquivos.
+O comando echo serve para mostrar um texto na tela do terminal. É muito usado em scripts para exibir mensagens.
 
 **Exemplo de uso:**
 ```bash
-echo "Olá, Linux!"                    # imprime o texto na tela
-echo "linha nova" >> arquivo.txt      # adiciona texto ao final de um arquivo
+echo "Olá, mundo!"
 ```
+O terminal vai imprimir: Olá, mundo!
 
 ---
 
 ## Sistema
 
-## `man` — Manual dos comandos
+## man
 
 **Para que serve:**
-Abre o manual completo de qualquer comando. Se não souber como usar algo, use o man! É o equivalente ao F1 do Linux. Pressione Q para sair.
+O comando man abre o manual de um comando. Se você não souber como usar um comando, o man explica tudo: o que faz, como usar e quais opções existem. Aperte Q para fechar.
 
 **Exemplo de uso:**
 ```bash
-man ls      # abre o manual do comando ls
-man grep    # veja todas as opções do grep
+man ls
 ```
+O terminal vai abrir o manual completo do comando ls.
 
 ---
 
-## `clear` — Limpar a tela
+## clear
 
 **Para que serve:**
-Limpa toda a tela do terminal, deixando-o sem bagunça visual. Você também pode usar o atalho Ctrl+L.
+O comando clear limpa a tela do terminal. Ele não apaga nada, só tira o que está aparecendo na tela para você ter mais espaço para trabalhar.
 
 **Exemplo de uso:**
 ```bash
-clear    # limpa a tela (o histórico de comandos continua salvo)
+clear
 ```
+A tela do terminal fica em branco, como se você tivesse acabado de abrir.
 
 ---
 
-## `whoami` — Quem está logado
+## whoami
 
 **Para que serve:**
-Mostra o nome do usuário que está usando o terminal agora. Útil quando você está em servidores ou trocando de usuário.
+O comando whoami mostra o nome do usuário que está logado e usando o terminal no momento.
 
 **Exemplo de uso:**
 ```bash
 whoami
-# Saída: usuario
 ```
+O terminal vai mostrar algo como: aluno
 
 ---
 
-## `ps` — Listar processos
+## history
 
 **Para que serve:**
-Mostra uma lista dos processos (programas) que estão em execução no sistema naquele momento.
+O comando history mostra uma lista com todos os comandos que você digitou no terminal anteriormente. É útil para lembrar o que você fez ou repetir um comando.
 
 **Exemplo de uso:**
 ```bash
-ps             # mostra processos do usuário atual
-ps aux         # mostra todos os processos do sistema com detalhes
+history
 ```
+O terminal vai listar os últimos comandos usados com um número na frente de cada um.
 
 ---
 
-## `kill` — Encerrar processo
+## ps
 
 **Para que serve:**
-Encerra um processo em execução usando o seu número de identificação (PID), que você consegue com o comando ps.
+O comando ps mostra quais programas estão em execução no sistema no momento. Cada programa em execução é chamado de processo.
 
 **Exemplo de uso:**
 ```bash
-kill 1234         # encerra o processo de ID 1234 normalmente
-kill -9 1234      # força o encerramento imediato (último recurso)
+ps
 ```
+O terminal vai mostrar os processos que estão rodando com o seu usuário, junto com o número de identificação de cada um (PID).
 
 ---
 
-## `top` — Monitor do sistema
+## kill
 
 **Para que serve:**
-Exibe em tempo real o consumo de CPU, memória e os processos em execução. É como o Gerenciador de Tarefas do Windows, mas no terminal. Pressione Q para sair.
+O comando kill serve para encerrar um processo (programa) que está rodando. Você precisa informar o número de identificação do processo, que é chamado de PID. Esse número você consegue com o comando ps.
 
 **Exemplo de uso:**
 ```bash
-top      # abre o monitor interativo (atualiza a cada 3 segundos)
+kill 1234
 ```
+Esse comando encerra o processo de número 1234.
 
 ---
 
-## `df` — Espaço em disco
+## top
 
 **Para que serve:**
-Mostra o espaço usado e disponível em cada partição do disco. O -h deixa os números legíveis (KB, MB, GB).
+O comando top funciona como o Gerenciador de Tarefas do Windows. Ele mostra ao vivo quais programas estão rodando e quanto de processador e memória cada um está usando. Para sair, aperte Q.
 
 **Exemplo de uso:**
 ```bash
-df -h      # exibe o uso de disco em formato legível (human-readable)
+top
 ```
+O terminal vai abrir uma tela que atualiza sozinha mostrando os processos em execução.
 
 ---
 
-## `du` — Tamanho de arquivos e pastas
+## df
 
 **Para que serve:**
-Mostra quanto espaço cada arquivo ou pasta está ocupando. Muito útil para descobrir o que está consumindo o disco.
+O comando df mostra informações sobre o espaço em disco: quanto está ocupado e quanto ainda está disponível. A opção -h deixa os valores mais fáceis de ler (em MB, GB).
 
 **Exemplo de uso:**
 ```bash
-du -sh pasta/       # mostra o tamanho total da pasta
-du -sh *            # mostra o tamanho de tudo no diretório atual
+df -h
 ```
+O terminal vai mostrar o espaço usado e livre de cada partição do disco em um formato legível.
 
 ---
 
-## `history` — Histórico de comandos
+## du
 
 **Para que serve:**
-Mostra todos os comandos que você digitou anteriormente no terminal. Útil para relembrar ou reutilizar comandos.
+O comando du mostra quanto espaço um arquivo ou pasta está ocupando no disco. É útil para descobrir o que está usando muito espaço no computador.
 
 **Exemplo de uso:**
 ```bash
-history              # mostra todo o histórico
-history | grep ls    # filtra o histórico mostrando só os comandos com ls
+du -sh pasta/
 ```
+O terminal vai mostrar o tamanho total da pasta de forma resumida e legível.
 
 ---
 
-## `apt` — Gerenciador de pacotes
+## apt
 
 **Para que serve:**
-Gerencia a instalação, atualização e remoção de programas no Ubuntu e Debian. Precisa do sudo para instalar.
+O comando apt é o gerenciador de pacotes do Ubuntu. Com ele você instala, atualiza e remove programas pelo terminal de forma simples. Quase sempre é usado junto com o sudo.
 
 **Exemplo de uso:**
 ```bash
-sudo apt update              # atualiza a lista de programas disponíveis
-sudo apt install git         # instala o Git
-sudo apt remove programa     # desinstala um programa
+sudo apt install nome-do-programa
 ```
+Esse comando instala o programa escolhido no sistema. O terminal vai pedir confirmação antes de instalar.
 
 ---
 
 ## Permissões
 
-## `sudo` — Executar como administrador
+## sudo
 
 **Para que serve:**
-Executa um comando com privilégios de administrador (root). O nome vem de "Super User Do". Necessário para instalar programas, alterar configurações do sistema, etc.
+O comando sudo permite executar um comando com permissão de administrador. Algumas ações no Linux só podem ser feitas por administradores, como instalar programas. O sudo dá essa permissão temporariamente.
 
 **Exemplo de uso:**
 ```bash
-sudo apt update         # atualiza a lista de pacotes (requer senha)
-sudo rm /etc/arquivo    # remove arquivo protegido do sistema
+sudo apt update
 ```
+Esse comando atualiza a lista de programas disponíveis no sistema usando permissão de administrador. O terminal vai pedir sua senha.
 
 ---
 
-## `chmod` — Alterar permissões
+## chmod
 
 **Para que serve:**
-Muda as permissões de leitura, escrita e execução de arquivos e pastas. Controla quem pode fazer o quê com cada arquivo.
+O comando chmod serve para mudar as permissões de um arquivo. No Linux, cada arquivo tem permissões que definem quem pode ler, escrever ou executar ele.
 
 **Exemplo de uso:**
 ```bash
-chmod +x script.sh       # dá permissão de execução ao script
-chmod 644 arquivo.txt    # dono lê/escreve; outros só leem
+chmod +x script.sh
 ```
+Esse comando dá permissão de execução ao arquivo script.sh, ou seja, permite que ele seja rodado como um programa.
 
 ---
 
-## `chown` — Alterar proprietário
+## chown
 
 **Para que serve:**
-Muda quem é o dono de um arquivo ou pasta. Muito usado em servidores para controlar o acesso a arquivos.
+O comando chown serve para mudar o dono de um arquivo ou pasta. Cada arquivo no Linux pertence a um usuário, e o chown permite alterar isso.
 
 **Exemplo de uso:**
 ```bash
-chown usuario arquivo.txt          # muda o dono do arquivo
-chown -R usuario:grupo pasta/      # muda dono e grupo de toda a pasta
+chown aluno arquivo.txt
 ```
+Esse comando muda o dono do arquivo.txt para o usuário chamado aluno.
 
 ---
 
 ## Rede
 
-## `ping` — Testar conexão de rede
+## ping
 
 **Para que serve:**
-Testa se um servidor ou endereço está acessível pela rede. Mostra o tempo de resposta. Use Ctrl+C para parar.
+O comando ping serve para testar se o seu computador está conseguindo se comunicar com outro endereço na internet ou na rede local. Ele manda pacotes e mede o tempo de resposta. Para parar, use Ctrl+C.
 
 **Exemplo de uso:**
 ```bash
-ping google.com       # verifica se o Google está acessível
-ping 8.8.8.8          # faz ping no servidor DNS do Google pelo IP
+ping google.com
 ```
+O terminal vai mostrar se o Google está respondendo e quanto tempo leva cada resposta.
 
 ---
 
-## `wget` — Baixar arquivos da internet
+## wget
 
 **Para que serve:**
-Faz o download de arquivos diretamente pelo terminal, apenas informando a URL. Funciona mesmo sem interface gráfica.
+O comando wget serve para baixar arquivos da internet direto pelo terminal. Você só precisa informar o endereço (URL) do arquivo.
 
 **Exemplo de uso:**
 ```bash
-wget https://exemplo.com/arquivo.zip      # baixa o arquivo no diretório atual
-wget -O novo-nome.zip https://url.com     # baixa e salva com outro nome
+wget https://site.com/arquivo.zip
 ```
+O terminal vai fazer o download do arquivo e salvar na pasta em que você está.
 
 ---
 
